@@ -1,11 +1,17 @@
-<h1>Lists</h1>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://www.deutsche-kinemathek.de/sites/default/files/public/styles/sdk-xlarge/public/Archive/Sammlung_digital/Kinos_Berlin/Central-Kino-Theater_1910.jpg?itok=FzpbzC48);">
+  <div class="container">
+    <h1>Save any kind of movies</h1>
+  </div>
+</div>
 
-<ul>
+<h2>My lists</h2>
 
+<%= link_to "Create new list", new_list_path, class: "btn btn-flat" %>
+
+<div class="d-flex justify-content-even">
   <% @lists.each do |list| %>
-    <li><%= list.name %></li>
+    <div class="card-category flex-grow-1 m-3" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://media.istockphoto.com/photos/popcorn-and-clapperboard-picture-id1191001701?k=20&m=1191001701&s=612x612&w=0&h=uDszifNzvgeY5QrPwWvocFOUCw8ugViuw-U8LCJ1wu8=)">
+      <%= link_to list.name, list_path(list.id) %>
+    </div>
   <% end %>
-
-</ul>
-
-<%= link_to "Create new list", new_list_path %>
+</div>

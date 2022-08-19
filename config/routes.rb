@@ -10,5 +10,5 @@ Rails.application.routes.draw do
 
   end
 
-  resources :bookmarks, only: [:delete]
+  resources :bookmarks, only: [:destroy]
 end
