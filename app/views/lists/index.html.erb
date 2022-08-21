@@ -10,7 +10,12 @@
 
 <div class="d-flex justify-content-even">
   <% @lists.each do |list| %>
-    <div class="card-category flex-grow-1 m-3" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://media.istockphoto.com/photos/popcorn-and-clapperboard-picture-id1191001701?k=20&m=1191001701&s=612x612&w=0&h=uDszifNzvgeY5QrPwWvocFOUCw8ugViuw-U8LCJ1wu8=)">
+    <% if list.photo.key %>
+      <div class="card-category flex-grow-1 m-3" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path list.photo.key %>')">
+    <% else %>
+      <div class="card-category flex-grow-1 m-3" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://media.istockphoto.com/photos/popcorn-and-clapperboard-picture-id1191001701?k=20&m=1191001701&s=612x612&w=0&h=uDszifNzvgeY5QrPwWvocFOUCw8ugViuw-U8LCJ1wu8=)">
+    <% end %>
+
       <%= link_to list.name, list_path(list.id) %>
     </div>
   <% end %>
